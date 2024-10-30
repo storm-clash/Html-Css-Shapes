@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Border and Color Animation</title>
+<style>
+  /* Base button style */
+  .animated-button {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white; /* Initial text color */
+    background-color: #007bff; /* Initial background color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 1.5s ease; /* Transition for text color */
+  }
+
+  /* Border fill animation */
+  .animated-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+  /* Hover effect */
+  .animated-button:hover {
+    background-color: #fff; /* Final background color */
+    color: #007bff; /* Change text color to match the border */
+  }
+
+  /* Apply border color animation on hover */
+  .animated-button:hover::before {
+    border-color: #007bff;
+    animation: borderFill 1.5s linear forwards;
+  }
+
+  /* Keyframes for border filling animation */
+  @keyframes borderFill {
+    0% {
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); /* Start at top-left */
+    }
+    25% {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%); /* Top side */
+    }
+    50% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%); /* Right side */
+    }
+    75% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Bottom side */
+    }
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Full border */
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="animated-button">Hover Me</button>
+
+</body>
+</html>
