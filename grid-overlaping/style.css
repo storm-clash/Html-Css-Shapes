@@ -1,0 +1,27 @@
+body {
+
+    margin:0 auto;
+}
+img {
+    display: block;
+    width: 100%;
+}
+.wrapper-test {
+    display: grid;
+    grid-template-columns: 1fr 75px;
+    align-items: center;
+    background: hsl(5, 45%, 65%);
+}
+
+.wrapper-test > h1 {
+    grid-row: 1;
+    grid-column: 1/3;
+    z-index: 2;
+    text-align: right;
+    background:hsl(2, 4%, 67%);
+}
+.wrapper-test > img{
+    grid-row: 1;
+    grid-column: 2/4;
+    
+}
